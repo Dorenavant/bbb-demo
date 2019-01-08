@@ -1,0 +1,15 @@
+<%= form_with scope: :big_blue_button, local: true do |form| %>
+    <%= content_tag :div, class: "navbar" do %>
+        <%= content_tag :div, class: "logo" do %>
+            <%= image_tag("bbb-logo.png", :alt => "Big Blue Button Demo") %>
+        <% end %>
+    <% end %>
+        
+    <%= content_tag :div, class: "join-meeting" do %>
+        <h4>Try BigBlueButton</h4>
+        <p>Join a demo session on this server</p>
+        <%= form.text_field :name, :class => "name-input", placeholder: "Name" %>
+        <%= form.text_field :password, :class => "name-input", placeholder: "Password" %>
+        <%= button_to "Join Meeting", {action: "join"}, {class: "submit-btn"} %>
+    <% end %>
+<% end %>

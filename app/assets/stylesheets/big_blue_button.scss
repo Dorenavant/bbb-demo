@@ -1,0 +1,84 @@
+// Place all the styles related to the BigBlueButton controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$grey: #F2F2F2;
+$join-meeting-background: #EDF4FB;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+h4 {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #42444c;
+    line-height: 2em;
+}
+
+p {
+    color: #999;
+    font-weight: 300;
+    margin-bottom: 20px;
+    line-height: 26px;
+    font-size: 15px;
+}
+
+input {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    cursor: text;
+    width: 86%;
+}
+
+.navbar {
+    background: white;
+    padding: 10px;
+    margin-bottom: 60px;
+    border-bottom: 1px $grey solid;
+    text-align: center;
+}
+
+.logo {
+    padding: 20px;
+}
+
+.join-meeting {
+    background: $join-meeting-background;
+    padding: 60px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: block;
+    margin: auto;
+    width: 12%;
+    border-radius: 8px;
+}
+
+.name-input {
+    display: block;
+    background: #fff;
+    border: 1px solid #c7cdd1;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 12px 18px;
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    background: #4DAF7C;
+    color: white;
+    margin-bottom: 20px;
+    padding: 12px 45px;
+    font-size: 1.1em;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: 0;
+}
