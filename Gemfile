@@ -60,6 +60,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+<<<<<<< HEAD
 
 # BBB Gem
 gem 'bigbluebutton-api-ruby', '~> 1.4'
+=======
+>>>>>>> ac11dce3fe1e974092e4f1ab159eeb0176ebfcf5

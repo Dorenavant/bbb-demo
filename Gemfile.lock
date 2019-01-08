@@ -47,8 +47,11 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+<<<<<<< HEAD
     bigbluebutton-api-ruby (1.4.0)
       xml-simple (>= 1.1.1)
+=======
+>>>>>>> ac11dce3fe1e974092e4f1ab159eeb0176ebfcf5
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
@@ -103,7 +106,11 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+<<<<<<< HEAD
     msgpack (1.2.6)
+=======
+    msgpack (1.2.4)
+>>>>>>> ac11dce3fe1e974092e4f1ab159eeb0176ebfcf5
     multi_json (1.13.1)
     nio4r (2.3.1)
     nokogiri (1.10.0)
@@ -189,7 +196,10 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+<<<<<<< HEAD
     xml-simple (1.1.5)
+=======
+>>>>>>> ac11dce3fe1e974092e4f1ab159eeb0176ebfcf5
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -197,7 +207,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   bigbluebutton-api-ruby (~> 1.4)
+=======
+>>>>>>> ac11dce3fe1e974092e4f1ab159eeb0176ebfcf5
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
