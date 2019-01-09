@@ -8,8 +8,13 @@
     <%= content_tag :div, class: "join-meeting" do %>
         <h4>Try BigBlueButton</h4>
         <p>Join a demo session on this server</p>
-        <%= form.text_field :name, :class => "name-input", placeholder: "Name" %>
+        <%= form.text_field :name, :value => join_name, :class => "name-input", placeholder: "Name" %>
         <%= form.password_field :password, :class => "name-input", placeholder: "Password" %>
         <%= button_to "Join Meeting", {action: "join"}, {class: "submit-btn"} %>
+        <%= content_tag :div, class: "error-message" do %>
+            <% if error_state then %>
+                <%= form.label "Error: invalid password" %>
+            <% end %>
+        <% end %>
     <% end %>
 <% end %>

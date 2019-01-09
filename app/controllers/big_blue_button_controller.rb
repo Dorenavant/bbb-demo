@@ -16,7 +16,7 @@ class BigBlueButtonController < ApplicationController
                 :logoutURL => "https://google.ca",
                 :maxParticipants => 25}
 
-    unless @api.is_meeting_running?(@id)
+    unless @api.is_meeting_running?(@id) # Check if meeting is running
       @api.create_meeting(@name, @id, @options)
     end
   end
@@ -24,22 +24,37 @@ class BigBlueButtonController < ApplicationController
   def login
   end
 
+  def error_state
+    flash[:error_state]
+  end
+
+  helper_method :error_state
+
+  def join_name
+    flash[:join_name]
+  end
+
+  helper_method :join_name
+
   def join
-    join_name = params[:big_blue_button][:name]
+    flash[:join_name] = params[:big_blue_button][:name]
     join_password = params[:big_blue_button][:password]
 
-    unless join_name == ""
+    unless join_name == "" # Cannot join with empty name
       init
 
+      # TODO: Add error message if password is not moderator or attendee password
       if join_password == @options[:moderatorPW]
-        meeting_url = @api.join_meeting_url(@id, join_name, @options[:moderatorPW])
+        meeting_url = @api.join_meeting_url(@id, flash[:join_name], @options[:moderatorPW])
         redirect_to meeting_url
       elsif join_password == @options[:attendeePW]
-        meeting_url = @api.join_meeting_url(@id, join_name, @options[:attendeePW])
+        meeting_url = @api.join_meeting_url(@id, flash[:join_name], @options[:attendeePW])
         redirect_to meeting_url
+      else
+        flash[:error_state] = true
       end
     else
-      puts "No name was entered."
+      puts "DEBUG: No name was entered."
     end
   rescue Exception => ex
     puts "Failed with error #{ex.message}"
