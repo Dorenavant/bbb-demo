@@ -24,34 +24,22 @@ class BigBlueButtonController < ApplicationController
   def login
   end
 
-  def error_state
-    flash[:error_state]
-  end
-
-  helper_method :error_state
-
-  def join_name
-    flash[:join_name]
-  end
-
-  helper_method :join_name
-
   def join
-    flash[:join_name] = params[:big_blue_button][:name]
+    @join_name = params[:big_blue_button][:name]
     join_password = params[:big_blue_button][:password]
 
-    unless join_name == "" # Cannot join with empty name
+    unless @join_name == "" # Cannot join with empty name
       init
 
       # TODO: Add error message if password is not moderator or attendee password
       if join_password == @options[:moderatorPW]
-        meeting_url = @api.join_meeting_url(@id, flash[:join_name], @options[:moderatorPW])
+        meeting_url = @api.join_meeting_url(@id, @join_name, @options[:moderatorPW])
         redirect_to meeting_url
       elsif join_password == @options[:attendeePW]
-        meeting_url = @api.join_meeting_url(@id, flash[:join_name], @options[:attendeePW])
+        meeting_url = @api.join_meeting_url(@id, @join_name, @options[:attendeePW])
         redirect_to meeting_url
       else
-        flash[:error_state] = true
+        @error_state = true
       end
     else
       puts "DEBUG: No name was entered."
