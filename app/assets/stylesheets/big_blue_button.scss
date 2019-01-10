@@ -4,6 +4,7 @@
 
 $grey: #F2F2F2;
 $join-meeting-background: #EDF4FB;
+$border-color: #42444C;
 
 * {
     margin: 0;
@@ -35,7 +36,7 @@ input {
     text-indent: 0px;
     text-shadow: none;
     cursor: text;
-    width: 86%;
+    width: 85%;
 }
 
 .navbar {
@@ -50,13 +51,37 @@ input {
     padding: 20px;
 }
 
-.join-meeting {
-    background: $join-meeting-background;
+.main {
+    background: #F5F5F5;
+    color: #999;
+    text-rendering: optimizeLegibility;
+
+    // Hack to make div fill screen
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    background: white;
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+%inner-div {
     padding: 60px;
     text-align: center;
-    border: 1px solid rgba(0,0,0,0.1);
     display: block;
     margin: auto;
+}
+
+.join-meeting {
+    @extend %inner-div;
+    background: $join-meeting-background;
+    border: 1px solid rgba(0,0,0,0.1);
     width: 250px;
     height: 275px;
     border-radius: 8px;
@@ -86,4 +111,24 @@ input {
 
 .error-message {
     color: red;
+}
+
+.recording-list {
+    @extend %inner-div;
+    margin-top: 50px;
+
+}
+
+.recordings-table {
+    margin: 50px 100px;
+    border: 1px solid $border-color;
+    text-align: center;
+}
+
+tr, th {
+    border: 1px solid $border-color;
+}
+
+.col-1 {
+    width: 45%;
 }

@@ -14,6 +14,7 @@ class BigBlueButtonController < ApplicationController
                 :attendeePW => "fdsa",
                 :welcome => "Welcome to the Demo Meeting",
                 :logoutURL => "https://google.ca",
+                :record => true,
                 :maxParticipants => 25}
 
     unless @api.is_meeting_running?(@id) # Check if meeting is running
@@ -31,7 +32,6 @@ class BigBlueButtonController < ApplicationController
     unless @join_name == "" # Cannot join with empty name
       init
 
-      # TODO: Add error message if password is not moderator or attendee password
       if join_password == @options[:moderatorPW]
         meeting_url = @api.join_meeting_url(@id, @join_name, @options[:moderatorPW])
         redirect_to meeting_url
@@ -47,5 +47,12 @@ class BigBlueButtonController < ApplicationController
   rescue Exception => ex
     puts "Failed with error #{ex.message}"
     puts ex.backtrace
+  end
+
+  def get_recordings
+    init
+
+    # @api.get_meetings()
+    recordings = @api.get_recordings({:meetingID => @id})
   end
 end

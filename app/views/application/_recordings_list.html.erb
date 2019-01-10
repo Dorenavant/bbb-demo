@@ -1,0 +1,10 @@
+<%= content_tag :div, class: 'recording-list' do %>
+    <h4>Recording List</h4>
+    <table class='recordings-table'>
+        <tr>
+            <th class='col-1'>Recording Name</th>
+            <th>Recording Date</th>
+        </tr>
+    </table>
+    <%= button_to 'Get Recordings', {action: 'get_recordings'} %>
+<% end %>
