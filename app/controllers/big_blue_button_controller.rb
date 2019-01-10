@@ -2,16 +2,18 @@ class BigBlueButtonController < ApplicationController
   def init
     require "bigbluebutton_api"
 
-    url = "http://10.107.111.235//bigbluebutton/api"
-    secret = "6d9e7029cd2393a7a9abb52fedc0e6bb"
-    version = "0.9"
-    @api = BigBlueButton::BigBlueButtonApi.new(url, secret, version.to_s, true)
+    @api = BigBlueButton::BigBlueButtonApi.new(
+      Rails.configuration.bigbluebutton_endpoint,
+      Rails.configuration.bigbluebutton_secret,
+      Rails.configuration.bigbluebutton_version,
+      true
+    )
 
     # Create demo meeting to join
     @name = "Demo Meeting"
     @id = "testID"
-    @options = {:moderatorPW => "asdf",
-                :attendeePW => "fdsa",
+    @options = {:moderatorPW => Rails.configuration.demo_moderator_pw,
+                :attendeePW => Rails.configuration.demo_attendee_pw,
                 :welcome => "Welcome to the Demo Meeting",
                 :logoutURL => "https://google.ca",
                 :record => true,
