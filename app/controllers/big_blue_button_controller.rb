@@ -2,16 +2,16 @@ class BigBlueButtonController < ApplicationController
   def init
     require "bigbluebutton_api"
 
-    url = "http://10.107.111.235//bigbluebutton/api"
-    secret = "6d9e7029cd2393a7a9abb52fedc0e6bb"
+    url = (ENV['BIGBLUEBUTTON_ENDPOINT'] || 'http://test-install.blindsidenetworks.com/bigbluebutton/') + 'api'
+    secret = ENV['BIGBLUEBUTTON_SECRET'] || '8cd8ef52e8e101574e400365b55e11a6'
     version = "0.9"
     @api = BigBlueButton::BigBlueButtonApi.new(url, secret, version.to_s, true)
 
     # Create demo meeting to join
     @name = "Demo Meeting"
     @id = "testID"
-    @options = {:moderatorPW => "asdf",
-                :attendeePW => "fdsa",
+    @options = {:moderatorPW => ENV['DEMO_MP'] || 'mp',
+                :attendeePW => ENV['DEMO_AP'] || 'ap',
                 :welcome => "Welcome to the Demo Meeting",
                 :logoutURL => "https://google.ca",
                 :maxParticipants => 25}

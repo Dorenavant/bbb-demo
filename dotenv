@@ -1,0 +1,12 @@
+# The endpoint and secret for your BigBlueButton server.
+# Set these if you are running GreenLight on a single BigBlueButton server.
+# You can retrive these by running the following command on your BigBlueButton server:
+#
+#   bbb-conf --secret
+#
+BIGBLUEBUTTON_ENDPOINT=http://test-install.blindsidenetworks.com/bigbluebutton/
+BIGBLUEBUTTON_SECRET=8cd8ef52e8e101574e400365b55e11a6
+
+# The default passwords for this example
+DEMO_MP=mp
+DEMO_AP=ap
