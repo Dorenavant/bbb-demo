@@ -1,14 +1,14 @@
 class BigBlueButtonController < ApplicationController
   before_action :initAPI, :get_recordings
 
-  @error_msgs = {"empty_name" => "Cannot join with empty name",
-                 "incorrect_pw" => "Incorrect password"}
-
   def login
     createMeeting
   end
 
   def join
+    @error_msgs = {"empty_name" => "Cannot join with empty name",
+                   "incorrect_pw" => "Incorrect password"}
+
     @join_name = params[:big_blue_button][:name] # Instance variable so view can repopulate
     join_password = params[:big_blue_button][:password]
 
@@ -25,11 +25,11 @@ class BigBlueButtonController < ApplicationController
         redirect_to meeting_url
       else
         @error_state = true
-        @error_msg = @error_msgs["empty_name"]
+        @error_msg = @error_msgs["incorrect_pw"]
       end
     else
       @error_state = true
-      @error_msg = @error_msgs["incorrect_pw"]
+      @error_msg = @error_msgs["empty_name"]
     end
   rescue Exception => ex
     puts "Failed with error #{ex.message}"
