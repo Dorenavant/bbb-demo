@@ -3,7 +3,7 @@
         <%= content_tag :div, class: "container" do %>
            <%= render "navbar" %>
 
-            <%= render "join-meeting", error: false, form: form %>
+            <%= render "join-meeting", error_state: @error_state, error_msg: @error_msg, form: form %>
 
             <%= render "recordings-list" %>
         <% end %>

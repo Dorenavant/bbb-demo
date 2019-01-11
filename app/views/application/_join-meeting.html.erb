@@ -6,8 +6,8 @@
         <%= form.password_field :password, :class => "name-input", placeholder: "Password" %>
         <%= button_to "Join Meeting", {action: "join"}, {class: "submit-btn"} %>
         <%= content_tag :div, class: "error-message" do %>
-            <% if error then %>
-                <%= form.label "Error: invalid password" %>
+            <% if error_state then %>
+                <%= form.label "Error: #{error_msg}" %>
             <% end %>
         <% end %>
     <% end %>

@@ -22,9 +22,11 @@ class BigBlueButtonController < ApplicationController
         redirect_to meeting_url
       else
         @error_state = true
+        @error_msg = "Incorrect password"
       end
     else
-      puts "DEBUG: No name was entered."
+      @error_state = true
+      @error_msg = "Name is empty"
     end
   rescue Exception => ex
     puts "Failed with error #{ex.message}"
