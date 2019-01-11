@@ -3,15 +3,9 @@
         <%= content_tag :div, class: "container" do %>
            <%= render "navbar" %>
 
-            <%= content_tag :div, class: "join-meeting" do %>
-                <h4>Try BigBlueButton</h4>
-                <p>Join a demo session on this server</p>
-                <%= form.text_field :name, :class => "name-input", placeholder: "Name" %>
-                <%= form.password_field :password, :class => "name-input", placeholder: "Password" %>
-                <%= button_to "Join Meeting", {action: "join"}, {class: "submit-btn"} %>
-            <% end %>
+            <%= render "join-meeting", error: false, form: form %>
 
-            <%= render "recordings_list" %>
+            <%= render "recordings-list" %>
         <% end %>
     <% end %>
 <% end %>

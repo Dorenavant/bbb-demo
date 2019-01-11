@@ -16,7 +16,7 @@ module BbbDemo
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.bigbluebutton_endpoint = ENV["BIGBLUEBUTTON_ENDPOINT"] || "http://test-install.blindsidenetworks.com/bigbluebutton/"
+    config.bigbluebutton_endpoint = ENV["BIGBLUEBUTTON_ENDPOINT"] || "http://test-install.blindsidenetworks.com/bigbluebutton/api"
     config.bigbluebutton_secret = ENV["BIGBLUEBUTTON_SECRET"] || "8cd8ef52e8e101574e400365b55e11a6"
     config.bigbluebutton_version = ENV["BIGBLUEBUTTON_VERSION"] || "0.9"
 

@@ -1,5 +1,5 @@
 class BigBlueButtonController < ApplicationController
-  before_action :initAPI
+  before_action :initAPI, :get_recordings
 
   def login
     createMeeting
@@ -32,11 +32,7 @@ class BigBlueButtonController < ApplicationController
   end
 
   def get_recordings
-    @api.join_meeting_url(session[:id],
-                          @join_name,
-                          session[:attendeePW])
-    recordings = @api.get_recordings({:meetingID => session[:id]})
-    # render plain: recordings
+    @recording_data = @api.get_recordings({:meetingID => session[:id]})[:recordings]
   end
 
   private

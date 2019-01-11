@@ -4,7 +4,7 @@
 
 $grey: #F2F2F2;
 $join-meeting-background: #EDF4FB;
-$border-color: #42444C;
+$dark-grey: #42444C;
 
 * {
     margin: 0;
@@ -78,6 +78,11 @@ input {
     margin: auto;
 }
 
+.meetings {
+    padding-bottom: 75px;
+    border-bottom: 1px $grey solid;
+}
+
 .join-meeting {
     @extend %inner-div;
     background: $join-meeting-background;
@@ -115,20 +120,37 @@ input {
 
 .recording-list {
     @extend %inner-div;
-    margin-top: 50px;
+}
 
+.recording-header {
+    color: $dark-grey;
+    padding: 20px;
 }
 
 .recordings-table {
-    margin: 50px 100px;
-    border: 1px solid $border-color;
+    margin: auto;
+    width: 75%;
     text-align: center;
+    border-spacing: 5px;
 }
 
-tr, th {
-    border: 1px solid $border-color;
+th {
+    margin-bottom: 30px;
+    color: $dark-grey;
 }
 
 .col-1 {
     width: 45%;
+}
+
+.col-2 {
+    width: 35%;
+}
+
+.col-3 {
+    width: 15%;
+}
+
+.col-4 {
+    width: 5%;
 }
