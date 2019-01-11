@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <%= content_tag :div, class: 'recording-list' do %>
     <h2 class="recording-header">Recording List</h2>
     <% if @recording_data %>
@@ -7,7 +8,7 @@
                     <th class="col-1">Recording Name</th>
                     <th class="col-2">Recording Date</th>
                     <th class="col-3">Length</th>
-                    <th class="col-4"></th>
+                    <th class="col-4">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +23,13 @@
                     <td>
                         <%= getRecLength(rec[:playback][:format]) %>
                     </td>
-                    <td><a href="<%= rec[:playback][:format][:url] %>" target="_blank">View</a></td>
+                    <td>
+                        <%= link_to rec[:playback][:format][:url], target: "_blank", class: "float-left grey-link" do %>
+                            <i class="material-icons">open_in_new</i>
+                        <% end %>
+                        <%= button_to action: "delete_recording", params: {rec_id: rec[:recordID]}, class: "delete-btn" do %>
+                            <i class="material-icons">delete</i>
+                        <% end %>
                 </tr>
                 <% end %>
 

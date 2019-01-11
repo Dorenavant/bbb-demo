@@ -40,7 +40,12 @@ class BigBlueButtonController < ApplicationController
     @recording_data = @api.get_recordings({:meetingID => session[:id]})[:recordings]
   end
 
-  private
+  def delete_recording
+    @api.delete_recordings(params[:rec_id])
+    get_recordings
+  end
+
+  private # Private helpers
 
   def initAPI
     require "bigbluebutton_api"
