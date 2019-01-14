@@ -2,7 +2,7 @@ class BigBlueButtonController < ApplicationController
   before_action :initAPI, :get_recordings
 
   def login
-    createMeeting
+    create_meeting
   end
 
   def join
@@ -61,7 +61,7 @@ class BigBlueButtonController < ApplicationController
     )
   end
 
-  def createMeeting
+  def create_meeting
     # Create demo meeting to join
     session[:name] = "Demo Meeting"
     session[:id] = "testID"

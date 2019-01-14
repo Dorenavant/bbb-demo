@@ -30,7 +30,7 @@ describe BigBlueButtonController, type: :controller do
     it "should redirect to the correct endpoint" do
       params = {
         big_blue_button: {
-          name: "Test",
+          name: "Bob",
           password: Rails.configuration.demo_moderator_pw,
         },
       }
