@@ -120,7 +120,9 @@ input {
 }
 
 .delete-btn {
-    visibility: hidden;
+    background: transparent;
+    border: none;
+    color: $icon-grey;
 }
 
 .error-message {
@@ -166,6 +168,10 @@ th {
 
 .float-left {
     float: left;
+}
+
+.float-right {
+    float: right;
 }
 
 .grey-link {

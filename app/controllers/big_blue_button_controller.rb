@@ -14,11 +14,13 @@ class BigBlueButtonController < ApplicationController
 
     if /[a-zA-Z0-9]/.match(@join_name) # Cannot join with empty name
       if join_password == session[:moderatorPW]
+        create_meeting
         meeting_url = @api.join_meeting_url(session[:id],
                                             @join_name,
                                             session[:moderatorPW])
         redirect_to meeting_url
       elsif join_password == session[:attendeePW]
+        create_meeting
         meeting_url = @api.join_meeting_url(session[:id],
                                             @join_name,
                                             session[:attendeePW])
@@ -42,6 +44,7 @@ class BigBlueButtonController < ApplicationController
 
   def delete_recording
     @api.delete_recordings(params[:rec_id])
+    sleep(5)
     get_recordings
   end
 

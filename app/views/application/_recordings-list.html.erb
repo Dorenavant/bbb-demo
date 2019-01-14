@@ -27,7 +27,7 @@
                         <%= link_to rec[:playback][:format][:url], target: "_blank", class: "float-left grey-link" do %>
                             <i class="material-icons">open_in_new</i>
                         <% end %>
-                        <%= button_to action: "delete_recording", params: {rec_id: rec[:recordID]}, class: "delete-btn" do %>
+                        <%= button_to "big_blue_button/delete_recording", params: {rec_id: rec[:recordID]}, class: "float-right delete-btn" do %>
                             <i class="material-icons">delete</i>
                         <% end %>
                 </tr>
