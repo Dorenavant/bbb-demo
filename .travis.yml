@@ -10,7 +10,7 @@ env:
     - secure: jySsbGFacvgpkirg+eiCLtuE2Y1vw7kZoZj9fcpjjSP4CDpEFzM/g/gjLvdv6coFs+XJa/3FLPGXcUia6VTiG7IkEMsYhv+cs2B0g1xkgkGQW69/F/WdL1KDmVkL+Mrb9eoxBsDsBqPq/p43NYyQljf1s5pbSGT5ubLwMc467+EzvHw16Ii6SR4M1af8xodWmUZkS+mPWMvqpJmwqobXrxAsMJoNuJMnIJ0g7ur5p0+/waed1Qq5IjTJb8YBJ2Zjx5mHh38cGda3YNGU70KbDJpbtvoAu5E0OZ/7R/SpQdQMXDiyAbdUgkPyYodhc854+d2aEZxWor8yqAq9ZQQUjVtZ42Ex1YpuIr4AvTWhYM6/apnkaSFM5THQVe6iKeKg4sZpHPqyntQRFb0sBbL5RVPJyTegqkC/QHByLAUyj3fTj1bKQOyTmiAz1DrAnZFGDK0z+4UuKkJFhQsez0cXTDQBWAsLG9sgJ1tkJh2GWOtRXPmMv4uJZxRSPpVKbMZIXD4kHcD+e3EGsEyS58xAFORDloBl4qtf6MbAtzdJ0Cw14AeKAjKFcxoNef/HIH+S9M1BsQDHpy1IIeniQut3cCPpbUvLY98HHjCzgQLGXEXGrqTX7SRVbXS+crRKpvL8492rfaFOSO0aQHWEGFHl+/J67XN2QHbrqGxjOJSShhg=
 
 before_install:
-  - docker build -t bbb-demo:latest
+  - docker build -t bbb-demo:latest .
 
 script:
   - docker tag bbb-demo:latest $DOCKER_HUB_USERNAME/bbb-demo:prod
