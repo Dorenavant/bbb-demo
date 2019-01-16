@@ -32,3 +32,6 @@
 
 # Ignore VS Code workspace
 Workspace.code-workspace
+
+# Ignore bin stubs
+/bin/*

@@ -22,4 +22,10 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: appname_production
+  pool: 5
+  username: <%= Rails.application.credentials.dig(:postgres, :username) %>
+  password: <%= Rails.application.credentials.dig(:postgres, :password) %>
