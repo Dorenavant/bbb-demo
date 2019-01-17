@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  postgres:
+    image:
+    volumes:
+      - 
+    env_file:
+      - '.env'

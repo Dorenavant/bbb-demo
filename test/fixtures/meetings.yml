@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meeting_name: MyString
+  meeting_id: MyString
+  moderator_pw: MyString
+  attendee_pw: MyString
+
+two:
+  meeting_name: MyString
+  meeting_id: MyString
+  moderator_pw: MyString
+  attendee_pw: MyString
