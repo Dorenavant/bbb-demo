@@ -13,5 +13,6 @@ before_install:
   - docker build -t bbb-demo:latest .
 
 script:
+  - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
   - docker tag bbb-demo:latest $DOCKER_HUB_USERNAME/bbb-demo:prod
   - docker push $DOCKER_HUB_USERNAME/bbb-demo:prod
