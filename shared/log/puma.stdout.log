@@ -24,4 +24,8 @@ BigBlueButtonAPI: Using version 0.9
 BigBlueButtonAPI: Using version 0.9
 BigBlueButtonAPI: Using version 0.9
 BigBlueButtonAPI: Using version 0.9
-asdfaweawbe
+asdfaweawbe=== puma startup: 2019-01-17 11:17:08 -0500 ===
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2019-01-17 11:17:10 -0500 ===
+- Goodbye!
+Exiting
