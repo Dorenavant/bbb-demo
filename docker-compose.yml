@@ -1,9 +1,14 @@
-version: '3'
+version: "3"
 
 services:
   postgres:
-    image:
-    volumes:
-      - 
+    image: "bbb-demo:latest"
     env_file:
-      - '.env'
+      - ".rbenv-vars"
+  web:
+    build: .
+    image: "bbb-demo:latest"
+    depends_on:
+      - "postgres"
+    env_file:
+      - ".rbenv-vars"
