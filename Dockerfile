@@ -30,8 +30,8 @@ RUN bundle exec rake assets:clean
 RUN bundle exec rake assets:precompile
 
 # Build DB
-RUN bundle exec rake db:create
-RUN bundle exec rake db:migrate
+RUN RAILS_ENV=production bundle exec rake db:create
+RUN RAILS_ENV=production bundle exec rake db:migrate
 
 # Expose port 80.
 EXPOSE 3000
