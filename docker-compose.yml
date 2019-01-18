@@ -8,6 +8,7 @@ services:
   web:
     build: .
     image: "bbb-demo:latest"
+    container_name: "bbb-demo"
     depends_on:
       - "postgres"
     env_file:

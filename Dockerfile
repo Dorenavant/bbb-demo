@@ -29,8 +29,12 @@ RUN bundle install --without development test --deployment --clean
 RUN bundle exec rake assets:clean
 RUN bundle exec rake assets:precompile
 
+# Build DB
+RUN bundle exec rake db:create
+RUN bundle exec rake db:migrate
+
 # Expose port 80.
-EXPOSE 80
+EXPOSE 3000
 
 # Start the application.
 CMD ["bin/start"]
