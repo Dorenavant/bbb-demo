@@ -34,8 +34,8 @@
 Workspace.code-workspace
 
 # Ignore bin stubs
-/bin/*
+bin/*
 
 # Ignore puma logs and pids
-/shared/log/*
-/shared/pids/*
+shared/log/*
+shared/pids/*

@@ -16,19 +16,15 @@ class BigBlueButtonController < ApplicationController
     if /[a-zA-Z0-9]/.match(@join_name) # Cannot join with empty name
       if join_password == session[:moderatorPW]
         create_meeting
-        silently do
-          meeting_url = @api.join_meeting_url(session[:id],
-                                              @join_name,
-                                              session[:moderatorPW])
-        end
+        meeting_url = @api.join_meeting_url(session[:id],
+                                            @join_name,
+                                            session[:moderatorPW])
         redirect_to meeting_url
       elsif join_password == session[:attendeePW]
         create_meeting
-        silently do
-          meeting_url = @api.join_meeting_url(session[:id],
-                                              @join_name,
-                                              session[:attendeePW])
-        end
+        meeting_url = @api.join_meeting_url(session[:id],
+                                            @join_name,
+                                            session[:attendeePW])
         redirect_to meeting_url
       else
         @error_state = true
@@ -44,15 +40,11 @@ class BigBlueButtonController < ApplicationController
   end
 
   def get_recordings
-    silently do
-      @recording_data = @api.get_recordings({:meetingID => session[:id]})[:recordings]
-    end
+    @recording_data = @api.get_recordings({:meetingID => session[:id]})[:recordings]
   end
 
   def delete_recording
-    silently do
-      @api.delete_recordings(params[:rec_id])
-    end
+    @api.delete_recordings(params[:rec_id])
     sleep(5)
     get_recordings
   end
@@ -75,7 +67,7 @@ class BigBlueButtonController < ApplicationController
     session[:name] = "Demo Meeting"
     session[:id] = "testID"
     session[:moderatorPW] = Rails.configuration.demo_moderator_pw
-    session[:attendeePW] = Rails.configuration.demo_moderator_pw
+    session[:attendeePW] = Rails.configuration.demo_attendee_pw
     options = {:moderatorPW => session[:moderatorPW],
                :attendeePW => session[:attendeePW],
                :welcome => "Welcome to the Demo Meeting",
@@ -83,30 +75,10 @@ class BigBlueButtonController < ApplicationController
                :record => true,
                :maxParticipants => 25}
 
-    silently do
-      unless @api.is_meeting_running?("session[:id]") # Check if meeting is running
-        @api.create_meeting(session[:name],
-                            session[:id],
-                            options)
-      end
+    unless @api.is_meeting_running?("session[:id]") # Check if meeting is running
+      @api.create_meeting(session[:name],
+                          session[:id],
+                          options)
     end
-  end
-
-  def silently
-    begin
-      orig_stderr = $stderr.clone
-      orig_stdout = $stdout.clone
-      $stderr.reopen File.new("/dev/null", "w")
-      $stdout.reopen File.new("/dev/null", "w")
-      retval = yield
-    rescue Exception => e
-      $stdout.reopen orig_stdout
-      $stderr.reopen orig_stderr
-      raise e
-    ensure
-      $stdout.reopen orig_stdout
-      $stderr.reopen orig_stderr
-    end
-    retval
   end
 end
