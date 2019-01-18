@@ -1,16 +1,6 @@
 require "rails_helper"
 
 describe BigBlueButtonController, type: :controller do
-  describe "POST #login" do
-    it "should fetch a list of recordings" do
-      silently do
-        post :login
-      end
-
-      expect(assigns[:recording_data]).to be_truthy
-    end
-  end
-
   describe "POST #join" do
     it "should render the correct template" do
       params = {

@@ -14,6 +14,8 @@ before_install:
   - docker-compose build
 
 script:
+  - bundle install --without "" # Gets test gems
+  - rspec
   - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
   - docker tag bbb-demo:latest $DOCKER_HUB_USERNAME/bbb-demo:prod
   - docker push $DOCKER_HUB_USERNAME/bbb-demo:prod
