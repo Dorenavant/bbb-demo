@@ -30,6 +30,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore credentials file
+config/credentials.yml.enc
+
 # Ignore VS Code workspace
 Workspace.code-workspace
 
