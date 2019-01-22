@@ -42,3 +42,4 @@ bin/*
 # Ignore puma logs and pids
 shared/log/*
 shared/pids/*
+shared/sockets/*
