@@ -1,24 +1,5 @@
-# README
+# BBB Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A small front-end for the BigBlueButton demo server; written in Ruby on Rails using the bigbluebutton-api-ruby gem.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Dockerized and ready to run with `rails server`
